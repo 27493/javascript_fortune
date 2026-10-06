@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>おみくじアプリ</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #result {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #d9534f;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            background-color: #f0ad4e;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        button:hover {
+            background-color: #ec971f;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>今日の運勢は？</h1>
+    <button onclick="drawOmikuji()">おみくじを引く</button>
+    <div id="result">結果がここに表示されます</div>
+
+    <script>
+        function drawOmikuji() {
+            // おみくじの結果リスト
+            const fortunes = [
+                "大吉 - 最高の一日になりそう！",
+                "中吉 - いいことあるかも！",
+                "小吉 - ささやかな幸せが見つかる日",
+                "吉 - 穏やかな一日",
+                "末吉 - 焦らずマイペースでいこう",
+                "凶 - 今日は慎重に行動しよう…"
+            ];
+
+            // 配列からランダムに1つ選ぶ
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            const selectedFortune = fortunes[randomIndex];
+
+            // 画面の結果表示エリアを書き換える
+            document.getElementById("result").textContent = selectedFortune;
+        }
+    </script>
+
+</body>
+</html>
